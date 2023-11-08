@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { postLoginWxMinAPI, postLoginWxMinSimpleAPI } from '@/api/login'
-
 // 获取 code 登录凭证
 let code = ''
 onLoad(async () => {
@@ -13,7 +12,6 @@ const sureToLogin = async () => {
   uni.showLoading({ title: '正在登录', mask: true })
   const { result } = await postLoginWxMinAPI({ code })
   uni.hideLoading()
-
   loginSuccess(result)
 }
 
