@@ -104,7 +104,7 @@
       ]
     }
   ],
-  // 分包预下载规则
+  // 分包预下载的规则
   "preloadRule": {
     "pages/my/my": {
       "network": "all",
