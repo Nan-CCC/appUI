@@ -8,19 +8,19 @@ const orderTypes = [
   { type: 3, text: '待收货', icon: 'icon-check' },
   { type: 4, text: '待评价', icon: 'icon-comment' }
 ]
+
 // 获取会员信息
 const memberStore = useMemberStore()
-// console.log('memberStore :>> ', memberStore.profile?.avatar)
 </script>
 
 <template>
   <scroll-view class="viewport" scroll-y enable-back-to-top>
-    <!-- 个人资料 -->
+    <!-- 个⼈资料 -->
     <view class="mt-20 relative" :style="{ paddingTop: safeAreaInsets!.top + 'px' }">
       <!-- 情况1：已登录 -->
       <view class="flex h-120 px-36 text-white" v-if="memberStore.profile">
         <navigator url="/pagesMember/profile/profile" hover-class="none">
-          <image class="w-120 h-120 rounded-1" mode="aspectFill" :src="memberStore.profile?.avatar"></image>
+          <image class="w-120 h-120 rounded-1" mode="aspectFill" :src="memberStore.profile.avatar"></image>
         </navigator>
         <view class="flex flex-col justify-center leading-30 py-16 ml-20">
           <view class="max-w-350 mb-16 text-30rpx truncate">
@@ -31,6 +31,7 @@ const memberStore = useMemberStore()
           </navigator>
         </view>
       </view>
+
       <!-- 情况2：未登录 -->
       <view class="flex h-120 px-36 text-white" v-else>
         <navigator url="/pages/login/login" hover-class="none">
@@ -42,7 +43,7 @@ const memberStore = useMemberStore()
           ></image>
         </navigator>
         <view class="flex flex-col justify-center leading-30 py-16 ml-20">
-          <navigator url="/pages/login/login" hover-class="none" class="max-w-350 mb-16 text-30rpx truncate">
+          <navigator url="/pages/login/login" hover-class="none" class="m ax-w-350 mb-16 text-30rpx truncate">
             未登录
           </navigator>
           <view class="flex text-20rpx">
@@ -86,7 +87,7 @@ const memberStore = useMemberStore()
           {{ item.text }}
         </navigator>
         <!-- 客服 -->
-        <button class="icon-handset navigator p-0 m-0 bg-transparent leading-[inherit]" open-type="contact"
+        <button class="icon-handset navigator p-0 m-0 bg-transparent lead ing-[inherit]" open-type="contact"
           >售后</button
         >
       </view>
@@ -95,23 +96,19 @@ const memberStore = useMemberStore()
     <view class="mt-20 bg-light-100"> </view>
   </scroll-view>
 </template>
-
 <style lang="scss" scoped>
 page {
   height: 100%;
   overflow: hidden;
   background-color: #f7f7f8;
 }
-
 .viewport {
   height: 100%;
   background-repeat: no-repeat;
   background-image: url(https://pcapi-xiaotuxian-front-devtest.itheima.net/miniapp/images/center_bg.png);
   background-size: 100% auto;
 }
-
-/* 用户信息 */
-
+/* ⽤户信息 */
 .update {
   padding: 3rpx 10rpx 1rpx;
   color: rgba(255, 255, 255, 0.8);
