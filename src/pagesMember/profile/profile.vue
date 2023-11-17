@@ -10,7 +10,6 @@ const fullLocation = ref<string>('')
 const profile = ref({} as ProfileDetail)
 const getMemberProfileData = async () => {
   const res = await getMemberProfileAPI()
-
   profile.value = res.result
   // codeToText[地区码] 匹配地区名称，但是 element-china-area-data ⾥的code去掉了末尾的0，所以去要使⽤正则表达式替换
   fullLocation.value =
