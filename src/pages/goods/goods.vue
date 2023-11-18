@@ -71,7 +71,7 @@ onLoad(() => {
         <view class="indicator">
           <text class="current">1</text>
           <text class="split">/</text>
-          <text class="total">1</text>
+          <text class="total">{{ goods?.mainPictures.length }}</text>
         </view>
       </view>
 
@@ -82,31 +82,31 @@ onLoad(() => {
           <text class="number">{{ goods?.price }}</text>
         </view>
         <view class="name ellipsis">{{ goods?.name }} </view>
-        <view class="desc"> {{ goods?.description }} </view>
+        <view class="desc">{{ goods?.description }} </view>
+      </view>
+
+      <!-- 操作面板 -->
+      <view class="action">
+        <view class="item arrow">
+          <text class="label">选择</text>
+          <text class="text ellipsis"> 请选择商品规格 </text>
+        </view>
+        <view class="item arrow" @tap="openPopup('address')">
+          <text class="label">送至</text>
+          <text class="text ellipsis"> 请选择收获地址 </text>
+        </view>
+        <view class="item arrow" @tap="openPopup('service')">
+          <text class="label">服务</text>
+          <text class="text ellipsis"> 无忧退 快速退款 免费包邮 </text>
+        </view>
       </view>
     </view>
 
-    <!-- 操作面板 -->
-    <view class="action">
-      <view class="item arrow">
-        <text class="label">选择</text>
-        <text class="text ellipsis"> 请选择商品规格 </text>
-      </view>
-      <view @tap="openPopup('address')" class="item arrow">
-        <text class="label">送至</text>
-        <text class="text ellipsis"> 请选择收获地址 </text>
-      </view>
-      <view @tap="openPopup('service')" class="item arrow">
-        <text class="label">服务</text>
-        <text class="text ellipsis"> 无忧退 快速退款 免费包邮 </text>
-      </view>
-    </view>
-    <!-- uni-ui 弹出层 -->
+    <!-- 弹出层 -->
     <uni-popup ref="popup" type="bottom" background-color="#fff">
       <AddressPanel v-if="popupName === 'address'" @close="popup?.close()" />
       <ServicePanel v-if="popupName === 'service'" @close="popup?.close()" />
     </uni-popup>
-
     <!-- 商品详情 -->
     <view class="detail panel">
       <view class="title">
@@ -119,17 +119,16 @@ onLoad(() => {
             <text class="label">{{ item.name }}</text>
             <text class="value">{{ item.value }}</text>
           </view>
-          <view class="item">
-            <text class="label">属性名</text>
-            <text class="value">属性值</text>
-          </view>
+          <!-- 图片详情 -->
+          <image
+            mode="widthFix"
+            src="//yanxuan-item.nosdn.127.net/a8d266886d31f6eb0d7333c815769305.jpg"
+          ></image>
+          <image
+            mode="widthFix"
+            src="//yanxuan-item.nosdn.127.net/a9bee1cb53d72e6cdcda210071cbd46a.jpg"
+          ></image>
         </view>
-        <!-- 图片详情 -->
-        <image mode="widthFix" v-for="item in goods?.productPictures" :key="item" :src="item"></image>
-        <!-- <image
-          mode="widthFix"
-          src="//yanxuan-item.nosdn.127.net/a9bee1cb53d72e6cdcda210071cbd46a.jpg"
-        ></image> -->
       </view>
     </view>
 
