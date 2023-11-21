@@ -56,6 +56,18 @@
       "style": {
         "navigationBarTitleText": "热门推荐"
       }
+    },
+    {
+      "path": "pages/goods/components/ServicePanel",
+      "style": {
+        "navigationBarTitleText": "ServicePanel"
+      }
+    },
+    {
+      "path": "pages/goods/components/AddressPanel",
+      "style": {
+        "navigationBarTitleText": "AddressPanel"
+      }
     }
   ],
   "globalStyle": {
@@ -128,6 +140,12 @@
           "style": {
             "navigationBarTitleText": "编辑地址"
           }
+        },
+        {
+          "path": "create/create",
+          "style": {
+            "navigationBarTitleText": "成功"
+          }
         }
       ]
     }
@@ -135,6 +153,7 @@
   // 分包预下载的规则
   "preloadRule": {
     "pages/my/my": {
+      //在my页面，任何网络下都加载pagesMember分包
       "network": "all",
       "packages": ["pagesMember"]
     }
