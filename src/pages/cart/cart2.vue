@@ -1,5 +1,5 @@
 <template>
-  <CartMain />
+  <CartMain safeAreaInsetBottom />
 </template>
 
 <script setup>
